@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+     
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Calculator App</title>
+
+    <link rel="stylesheet" href="calculator.css">
+</head>
+
+<body>
+
+    <h1 style="text-align:center">Calculator App</h1>
+
+    <div class="container">
+        <br>
+        <table>
+            <tr>
+                <td colspan="3">
+                    <input type='text' id='result' class='screen'></td>
+                <td>
+                    <input type='button' value='AC' onclick="clearScreen()" class="clear" />
+
+                    <!-- Add this line inside the keys div to create the delete button -->
+                  <input type="button" value="DEL" class="delete" onclick="deleteCharacter()">
+
+                </td>
+            </tr>
+        </table>
+
+        <div class="keys">
+            <input type="button" value="7" class="button" onClick="display('7')">
+            <input type="button" value="8" class="button" onClick="display('8')">
+            <input type="button" value="9" class="button" onClick="display('9')">
+            <input type="button" value="/" class="operator" onClick="display('/')">
+            <input type="button" value="4" class="button" onClick="display('4')">
+            <input type="button" value="5" class="button" onClick="display('5')">
+            <input type="button" value="6" class="button" onClick="display('6')">
+            <input type="button" value="*" class="operator" onClick="display('*')">
+            <input type="button" value="1" class="button" onClick="display('1')">
+            <input type="button" value="2" class="button" onClick="display('2')">
+            <input type="button" value="3" class="button" onClick="display('3')">
+            <input type="button" value="-" class="operator" onClick="display('-')">
+            <input type="button" value="0" class="button" onClick="display('0')">
+            <input type="button" value="." class="button" onClick="display('.')">
+            <input type="button" value="=" class="button equal-sign" onClick="solve()">
+            <input type="button" value="+" class="operator" onClick="display('+')">
+        </div>
+
+    </div>
+
+    <script>
+
+        function display(val) {
+            document.getElementById('result').value += val;
+            return val;
+        }
+        
+        function solve() {
+            let x = document.getElementById('result').value;
+            let y = eval(x);
+            document.getElementById('result').value = y;
+            return y;
+        }
+        
+        function clearScreen() {
+            document.getElementById('result').value = '';
+        }
+        
+        function deleteCharacter(){
+           current= document.getElementById('result').value;
+
+            update=current.slice(0,-1);
+
+            document.getElementById('result').value= update;
+        }
+
+    </script>
+
+</body>
+
+</html>
